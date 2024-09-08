@@ -44,9 +44,7 @@ function App() {
 
         <TaskInput type='text' placeholder='Digite sua tarefa' value={inputUsuario} onChange={e => setInputUsuario(e.target.value)}/>
 
-        <AddButton type='button' onClick={adicionarTarefaDigitada}>
-          <IoMdAdd />
-        </AddButton>
+        <AddButton type='button' onClick={adicionarTarefaDigitada}><IoMdAdd /></AddButton>
 
       </TaskInputContainer>
 
@@ -55,15 +53,9 @@ function App() {
         {tarefas.map((tarefa, index) => (
           <TaskItem key={index} feita={tarefa.feita}>
 
-            <CheckBox onClick={() => marcarComoFeita(index)}>
-              {tarefa.feita ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
-            </CheckBox>
+            <CheckBox onClick={() => marcarComoFeita(index)}>{tarefa.feita ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}</CheckBox>
 
-            <TaskText>{tarefa.texto}</TaskText>
-
-            <DeleteButton onClick={() => excluirTarefa(index)}>
-              <FaRegTrashAlt />
-            </DeleteButton>
+            <TaskText>{tarefa.texto}</TaskText><DeleteButton onClick={() => excluirTarefa(index)}><FaRegTrashAlt /></DeleteButton>
 
           </TaskItem>
         ))}
